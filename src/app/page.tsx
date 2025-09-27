@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 type MovieType = {
   adult: boolean,
@@ -32,30 +33,40 @@ export default async function Home() {
   const movies: MovieType[] = await getMoviesNow()
 
   return (
-    <div>
-      <div className="m-4 flex justify-center font-bold text-5xl bg">
-        FILMES EM CARTAZ
+    <div className="text-white bg-gray-800">
+      <header 
+        className="bg-gray-800 text-white font-extrabold text-6xl p-4 border-b-2 border-black flex justify-between"
+      >
+        <div>FILMES&TAL</div>
+        <div>
+          <Link href="/buscar">Lupa</Link>
+        </div>
+      </header>
+      <div className="flex justify-center font-bold text-5xl p-5">
+        Filmes em Cartaz
       </div>
-      <div className="flex flex-wrap gap-5 justify-center m-5">
+      <div className="flex flex-wrap gap-5 justify-center p-5">
         {movies.map((movie, i) => {
           return (
-          <div 
-            className="flex-col justify-items-center gap-4 border-2 rounded-3xl p-3 max-w-[300px]"
+          <Link 
+            href={`/filmes/${movie.id}`}
             key={i}
           >
-            <div className="rounded-2xl overflow-auto">
+            <div 
+              className="flex-col justify-items-center gap-5 border-2 border-gray-500 rounded-3xl max-w-[350px] bg-gray-700 overflow-auto"
+              
+            >
               <Image 
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
                 alt="Poster do filme" 
-                width={300} 
+                width={350} 
                 height={750} 
               />
+              <div className="text-shadow-2xs text-1xl m-5 font-bold">
+                {movie.title}
+              </div>  
             </div>
-            
-            <div className="text-1xl m-5 font-bold">
-              {movie.title}
-            </div>
-          </div>
+          </Link>
         )})}
       </div>
     </div>
