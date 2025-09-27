@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Clapperboard, Search } from 'lucide-react';
 
 type MovieType = {
   adult: boolean,
@@ -37,9 +38,15 @@ export default async function Home() {
       <header 
         className="bg-gray-800 text-white font-extrabold text-6xl p-4 border-b-2 border-black flex justify-between"
       >
-        <div>FILMES&TAL</div>
-        <div>
-          <Link href="/buscar">Lupa</Link>
+        <div className="flex items-center gap-4">
+          <Clapperboard size={50} />
+          FILMES&TAL
+        </div>
+        <div className="flex">
+          <Link className="flex gap-3 font-medium items-center text-3xl" href="/buscar">
+            <Search size={30} /> 
+            Buscar
+          </Link>
         </div>
       </header>
       <div className="flex justify-center font-bold text-5xl p-5">
