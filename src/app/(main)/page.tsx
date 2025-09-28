@@ -1,6 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
 import type { MovieType } from "@/types/api";
+import { MoviesList } from "@/components/container/MoviesList";
 
 export const dynamic = 'force-dynamic';
 
@@ -21,30 +20,7 @@ export default async function Home() {
       <div className="flex justify-center font-bold text-5xl p-5">
         Filmes em Cartaz
       </div>
-      <div className="flex flex-wrap gap-5 justify-center p-5">
-        {movies.map((movie, i) => {
-          return (
-          <Link 
-            href={`/filmes/${movie.id}`}
-            key={i}
-          >
-            <div 
-              className="flex-col justify-items-center gap-5 border-2 border-gray-500 rounded-3xl max-w-[350px] bg-gray-700 overflow-auto"
-              
-            >
-              <Image 
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
-                alt="Poster do filme" 
-                width={350} 
-                height={750} 
-              />
-              <div className="text-shadow-2xs text-1xl m-5 font-bold">
-                {movie.title}
-              </div>  
-            </div>
-          </Link>
-        )})}
-      </div>
+      <MoviesList movies={movies}/>
     </div>
   );
 }

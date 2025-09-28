@@ -7,10 +7,10 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
 			<header 
 				className="bg-gray-800 text-white font-extrabold text-6xl p-4 border-b-2 border-black flex justify-between"
 			>
-				<div className="flex items-center gap-4">
+				<Link href="/sobre" className="flex items-center gap-4">
 					<Clapperboard size={50} />
 					FILMES&TAL
-				</div>
+				</Link>
 				<div className="flex">
 					<Link className="flex gap-3 font-medium items-center text-3xl" href="/buscar">
 					<Search size={30} /> 
