@@ -1,22 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-
-type MovieType = {
-  adult: boolean,
-  backdrop_path: string,
-  genre_ids: number[],
-  id: number,
-  original_language: string,
-  original_title: string,
-  overview: string,
-  popularity: number,
-  poster_path: string,
-  release_date: string,
-  title: string,
-  video: boolean,
-  vote_average: number,
-  vote_count: number
-}
+import { Clapperboard, Search } from 'lucide-react';
+import type { MovieType } from "@/types/api";
 
 export const dynamic = 'force-dynamic';
 
@@ -37,9 +22,15 @@ export default async function Home() {
       <header 
         className="bg-gray-800 text-white font-extrabold text-6xl p-4 border-b-2 border-black flex justify-between"
       >
-        <div>FILMES&TAL</div>
-        <div>
-          <Link href="/buscar">Lupa</Link>
+        <div className="flex items-center gap-4">
+          <Clapperboard size={50} />
+          FILMES&TAL
+        </div>
+        <div className="flex">
+          <Link className="flex gap-3 font-medium items-center text-3xl" href="/buscar">
+            <Search size={30} /> 
+            Buscar
+          </Link>
         </div>
       </header>
       <div className="flex justify-center font-bold text-5xl p-5">
