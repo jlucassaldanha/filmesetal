@@ -18,8 +18,8 @@ async function getMovieDetails(id: string) {
 }
 
 export default async function Movie({ params }: {params: { id: string }}){
-	const movieId = params.id
-	const details: DetailsType = await getMovieDetails(movieId)
+	const { id } = await params
+	const details: DetailsType = await getMovieDetails(id)
 	return (
 		<div className="bg-gray-800 text-white min-h-screen flex flex-col justify-center items-center">
 			<section className="flex gap-5 border-2 border-gray-500 rounded-3xl overflow-auto bg-gray-700 max-w-[1000px] min-w-[700px]">

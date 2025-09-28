@@ -1,5 +1,6 @@
 'use client'
 import { Input } from "@/components/ui/input";
+import { MovieType } from "@/types/api";
 import { Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,15 +8,14 @@ import { useState } from "react";
 
 export default function SearchMovie(){
 	const [inputText, setInputText] = useState<string>('')
+	const [moviesList, setMoviesList] = useState<MovieType[]>()
 
 	const handleOnClick = async () => {
 		console.log(inputText)
 		try {
 			const response = await fetch(`/api/search?movie_name=${inputText}`)
-
 			const data = await response.json()
-
-
+			setMoviesList(data.results)
 		} catch (error) {
 			console.log(error)
 		}
@@ -40,7 +40,7 @@ export default function SearchMovie(){
 				</button>
 			</header>
 			<div className="flex flex-wrap gap-5 justify-center p-5">
-				{/*movies.map((movie, i) => {
+				{moviesList?.map((movie, i) => {
 				return (
 				<Link 
 					href={`/filmes/${movie.id}`}
@@ -61,7 +61,7 @@ export default function SearchMovie(){
 					</div>  
 					</div>
 				</Link>
-				)})*/}
+				)})}
 			</div>
 		</div>
 	)
