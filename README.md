@@ -1,6 +1,6 @@
 # Filmes&Tal 🎬
 [![Deploy on Vercel](https://img.shields.io/badge/Deploy-Vercel-000?logo=vercel)](https://spectralive.vercel.app)
-[![Made with React](https://img.shields.io/badge/Next.js-15-000?logo=next.js)](https://react.dev)
+[![Made with React](https://img.shields.io/badge/Next.js-15-000?logo=next.js)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript)](https://www.typescriptlang.org/)
 
 ## 📌 Sobre o projeto
