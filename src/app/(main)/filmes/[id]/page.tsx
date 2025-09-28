@@ -47,7 +47,7 @@ export default async function Movie({ params }: {params: { id: string }}){
 							{details.overview}
 						</div>
 					</div>
-					<Link href="/" className="flex justify-center items-center gap-3">
+					<Link href="/" className="flex justify-center items-center gap-3 mb-4">
 						<ArrowLeft />
 						Voltar
 					</Link>
